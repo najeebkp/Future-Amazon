@@ -1,0 +1,69 @@
+@import "./Constants.scss";
+@import "./GlobalClasses.scss";
+
+.custom-navbar-wrapper {
+  display: flex;
+  background: $navbar-background;
+  align-items: center;
+  height: auto;
+  padding: 20px;
+  justify-content: center;
+  .navbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    .navbar-image {
+      padding-top: 15px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .navbar {
+      width: auto;
+      flex-direction: column;
+      .col {
+        width: 100% !important;
+      }
+      .navbar-image {
+        padding-bottom: 10px !important;
+        padding-top: 0px;
+      }
+    }
+  }
+  .search-bar-wrapper {
+    display: flex;
+
+    input {
+      &:focus {
+        border-color: white;
+        box-shadow: 0 0 0 0;
+      }
+    }
+
+    .searchButton {
+      background: $key-color;
+      border: transparent;
+      color: black;
+      padding-bottom: 8px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .full-width-on-mobile {
+      margin-top: 20px;
+      // .col {
+      width: 100% !important;
+      // }
+    }
+  }
+  .navbar-components {
+    line-height: 17px;
+    padding: 0 10px;
+  }
+}
+.first-menu {
+  display: flex;
+  justify-content: space-between;
+  @media screen and (max-width: 768px) {
+    display: none;
+    text-align: center;
+  }
+}

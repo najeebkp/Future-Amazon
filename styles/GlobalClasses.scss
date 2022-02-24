@@ -1,0 +1,40 @@
+.vr {
+  color: rgb(116, 115, 115);
+}
+.disabled-color {
+  color: $disabled-color;
+}
+.small-font {
+  font-size: $font-size-small;
+}
+.normal-font {
+  font-size: $font-size-normal;
+}
+.primary-color-text {
+  color: $primary-text;
+}
+.bold {
+  font-weight: bold;
+}
+.key-color {
+  color: $key-color;
+}
+.hamburger {
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: block;
+    position: absolute;
+    padding-top: 3.5px;
+    z-index: 1;
+  }
+}
+.offcanvas {
+  background-color: #00171f !important;
+  .offcanvas-header {
+    .offcanvas-title {
+      .btn-close {
+        color: #7a7a7a;
+      }
+    }
+  }
+}
