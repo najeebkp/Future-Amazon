@@ -56,7 +56,7 @@ function NavBar() {
 
             <Offcanvas show={show} onHide={handleClose}>
               <Offcanvas.Header closeButton closeVariant="white">
-                <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+                {/* <Offcanvas.Title>Offcanvas</Offcanvas.Title> */}
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <div className="">

@@ -1,0 +1,9 @@
+@import "./Constants.scss";
+@import "./GlobalClasses.scss";
+
+.BottomNav-Wrapper {
+  background-color: $navbar-background;
+  align-items: center;
+  height: auto;
+  padding: 50px 20px 20px 20px;
+}
