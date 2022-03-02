@@ -7,6 +7,12 @@
 .light-grey-color {
   color: $light-grey-color;
 }
+.key-color-2 {
+  color: $key-color-2;
+}
+.key-color-3 {
+  color: $key-color-3;
+}
 
 .very-small-font {
   font-size: $font-size-very-small;
@@ -16,6 +22,27 @@
 }
 .normal-font {
   font-size: $font-size-normal;
+}
+.font-size-big {
+  font-size: $font-size-big;
+}
+.primary-cta {
+  background: $key-color !important;
+  color: $background !important;
+  border: none !important;
+  border-radius: 0px !important;
+  font-size: $font-size-small !important;
+  font-weight: 600 !important;
+  padding: 5px 5px 3px 15px !important;
+}
+.font-size-very-big {
+  font-size: $font-size-very-big;
+}
+.very-giant-font {
+  font-size: $font-size-very-giant;
+  @media screen and (max-width: 768px) {
+    font-size: 10.9vw;
+  }
 }
 .primary-color-text {
   color: $primary-text;
@@ -44,4 +71,7 @@
       }
     }
   }
+}
+a:link {
+  text-decoration: none;
 }

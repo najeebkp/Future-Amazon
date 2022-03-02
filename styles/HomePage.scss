@@ -1,9 +1,47 @@
 .homepage {
-  background: $background;
+  background: $navbar-background;
   color: $primary-text;
-  height: 100vh;
+  // height: 100vh;
 }
 .home-featured-products-wrapper {
-  height: 100vh;
   background: $navbar-background;
+
+  .feature-1 {
+    padding: 100px 0px;
+    justify-content: center;
+    display: flex;
+    background-image: url("https://www.seekpng.com/png/full/9-96692_perspective-icon-technology-background-dotted-background-png.png"),
+      linear-gradient(279deg, rgb(9, 10, 10) 0%, rgba(32, 43, 56, 1) 49%);
+    background-size: cover;
+
+    @media screen and (max-width: 768px) {
+      padding: 0;
+    }
+  }
+  .feature-2 {
+    padding: 50px 0px;
+    background: rgb(58, 58, 58);
+    background: radial-gradient(
+      circle,
+      rgba(58, 58, 58, 1) 30%,
+      rgba(16, 27, 31, 1) 100%
+    );
+  }
+  .feature-3 {
+    padding: 50px 0px;
+    background-color: #424242;
+  }
+  .feature-4 {
+    padding: 50px 10px;
+    background-color: #191b1d;
+  }
+  .feature-5 {
+    padding: 63px 20px;
+    background: rgb(255, 255, 255);
+  }
+  .feature-6 {
+    padding: 63px 20px;
+    width: 100%;
+    background-color: #e12419;
+  }
 }

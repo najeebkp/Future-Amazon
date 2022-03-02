@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 import BottomNav from "../components/BottomNav";
 import HomeFeaturedProducts from "../components/HomeFeaturedProducts";
 import NavBar from "../components/NavBar";
+import PrimaryLayout from "../components/layout/PrimaryLayout";
 
 export default function Home() {
   return (
@@ -13,12 +14,11 @@ export default function Home() {
         <meta name="description" content="Future Amazon Portfolio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <div className="homepage">
-        <NavBar></NavBar>
+      <div>
         <HomeFeaturedProducts></HomeFeaturedProducts>
-        <BottomNav></BottomNav>
       </div>
     </div>
   );
 }
+// attaching the children with layout
+Home.Layout = PrimaryLayout;

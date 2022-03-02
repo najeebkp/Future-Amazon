@@ -1,5 +1,7 @@
-import Image from "next/image";
 import React, { ReactFragment } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/router";
 import {
   InputGroup,
   FormControl,
@@ -16,6 +18,8 @@ import { NavMenuArray } from "../constants/constantData";
 import { Menu } from "@styled-icons/entypo/Menu";
 
 function NavBar() {
+  //router
+  const router = useRouter();
   // hamburger toggle state
   const [show, setShow] = React.useState(false);
 
@@ -84,7 +88,7 @@ function NavBar() {
           <Col sm={2} className="text-center">
             <img
               className="navbar-image"
-              src="https://jitsvinger.co.za/wp-content/uploads/2018/04/Amazon-Logo-1024x373.png"
+              src="/Amazon-Logo.png"
               alt="Picture of the author"
               width={110}
             ></img>
@@ -93,13 +97,15 @@ function NavBar() {
           <Col sm={6} className="full-width-on-mobile">
             <InputGroup className="search-bar-wrapper">
               <FormControl />
-              <Button
-                variant="outline-secondary"
-                className="searchButton"
-                id="button-addon2"
-              >
-                <Search size="17" title="Unlock account" />
-              </Button>
+              <Link href={"/scascas"}>
+                <Button
+                  variant="outline-secondary"
+                  className="searchButton"
+                  id="button-addon2"
+                >
+                  <Search size="17" title="Unlock account" />
+                </Button>
+              </Link>
             </InputGroup>
           </Col>
 
