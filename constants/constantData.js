@@ -162,25 +162,46 @@ export const featuringList = [
   {
     fname: "echo",
     lname: "dot",
+    desc: "meet the echo dot - our most popular smart speaker with alexa. the sleek, compact design delivers crisp vocals and balanced bass for full sound.\nvoice control your entertainment - stream songs from amazon music, apple music, spotify, siriusxm, and others. play music, audiobooks, and podcasts throughout your home with multi-room music.ready to help - ask alexa to tell a joke, play music, answer questions, play the news, check the weather, set alarms, and more.control your smart home - use your voice to turn on lights, adjust thermostats, and lock doors with compatible devices.start routines with your motion - turn on compatible lights, play your flash briefing, or turn on the coffee maker when you walk into the room.connect with others hands-free - call friends and family who have the alexa app or an echo device. instantly drop in on other rooms or announce to the whole house that dinner’s ready.designed to protect your privacy  amazon is not in the business of selling your personal information to others. built with multiple layers of privacy controls including a mic off button.",
     price: 99.99,
-    link: "/",
-    image:
+    id: "123",
+    color: {
+      fname: "primary-text",
+      lname: "key-color",
+      price: "key-color",
+    },
+    image: [
       "https://www.aivanet.com/wp-content/uploads/2020/10/1602136826_5365324827933.png",
+      "https://media.croma.com/image/upload/v1605261105/Croma%20Assets/Entertainment/Speakers%20and%20Media%20Players/Images/8994605793310.png",
+    ],
   },
   {
     fname: "goPro",
     lname: "herocam",
     price: 59.99,
-    link: "/",
-    image: "https://assets.stickpng.com/images/580b57fbd9996e24bc43c008.png",
+    id: "124",
+    color: {
+      fname: "primary-text",
+      lname: "key-color",
+      price: "key-color",
+    },
+    image: [
+      "https://postperspective.com/wp-content/uploads/2020/09/90_HERO9_Black_Colored_8bit_octopus_webcam_RGB-624x416.png",
+    ],
   },
   {
     fname: "playstation",
     lname: "4",
     price: 199.99,
-    link: "/",
-    image:
+    id: "125",
+    color: {
+      fname: "primary-text",
+      lname: "key-color",
+      price: "key-color",
+    },
+    image: [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sony-PlayStation-4-PS4-DualShock-4.png/1200px-Sony-PlayStation-4-PS4-DualShock-4.png",
+    ],
   },
 ];
 export const featuredListSmall = [
@@ -193,7 +214,7 @@ export const featuredListSmall = [
       lname: "light-grey-color",
       price: "disabled-color",
     },
-    link: "/",
+    id: "126",
     image:
       "https://d2d22nphq0yz8t.cloudfront.net/88e6cc4b-eaa1-4053-af65-563d88ba8b26/https://media.croma.com/image/upload/v1605161405/Croma%20Assets/Small%20Appliances/Images/8878110670878.png/mxw_640,f_auto",
   },
@@ -201,7 +222,7 @@ export const featuredListSmall = [
     fname: "Fire",
     lname: "HD8",
     price: 99.99,
-    link: "/",
+    id: "127",
     color: {
       fname: "disabled-color",
       lname: "key-color-2",
@@ -214,7 +235,7 @@ export const featuredListSmall = [
     fname: "fire tv",
     lname: "stick",
     price: 39.99,
-    link: "/",
+    id: "128",
     color: {
       fname: "disabled-color",
       lname: "key-color-2",
@@ -227,7 +248,7 @@ export const featuredListSmall = [
     fname: "SUPER NES",
     lname: "Classic",
     price: 107.99,
-    link: "/",
+    id: "129",
     color: {
       fname: "disabled-color",
       lname: "key-color-2",
@@ -239,7 +260,7 @@ export const featuredListSmall = [
     fname: "nintendo",
     lname: "switch",
     price: 250.99,
-    link: "/",
+    id: "130",
     color: {
       fname: "primary-text",
       lname: "primary-text",

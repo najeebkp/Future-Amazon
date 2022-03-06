@@ -1,5 +1,4 @@
 @import "./Constants.scss";
-@import "./GlobalClasses.scss";
 
 .custom-navbar-wrapper {
   display: flex;
@@ -10,12 +9,19 @@
   height: auto;
   padding: 20px;
   justify-content: center;
+  transition: ease-out 250ms;
+  &.light {
+    background: #ffffff;
+    transition: ease-in 250ms;
+  }
   .navbar {
     display: flex;
     align-items: center;
     width: 100%;
     .navbar-image {
       padding-top: 15px;
+      cursor: pointer;
+      transition: ease-in-out 250ms;
     }
   }
   @media screen and (max-width: 768px) {
@@ -46,6 +52,9 @@
       border: transparent;
       color: black;
       padding-bottom: 8px;
+      &.light {
+        background: $key-color-2;
+      }
     }
   }
   @media screen and (max-width: 768px) {
@@ -59,6 +68,12 @@
   .navbar-components {
     line-height: 17px;
     padding: 0 10px;
+  }
+  .menu-icons {
+    color: white;
+    &.light {
+      color: black;
+    }
   }
 }
 .first-menu {

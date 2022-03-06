@@ -1,0 +1,96 @@
+.product-detail-wrapper {
+  background: linear-gradient(
+    279deg,
+    rgb(9, 10, 10) 0%,
+    rgba(32, 43, 56, 1) 49%
+  );
+  background-size: cover;
+  &.light {
+    background: linear-gradient(
+      279deg,
+      rgb(129, 129, 129) 0%,
+      rgb(97, 97, 97) 49%
+    );
+  }
+
+  .image-with-buttons {
+    @media screen and (max-width: 768px) {
+      // display: flex;
+      // justify-content: center;
+    }
+  }
+  .prev-button {
+    order: 1;
+    @media screen and (max-width: 768px) {
+      order: 2;
+      position: absolute;
+      right: 40%;
+    }
+  }
+  .next-button {
+    order: 3;
+    @media screen and (max-width: 768px) {
+      order: 3;
+      position: absolute;
+      padding-left: 85%;
+    }
+  }
+  .primary-image {
+    order: 2;
+    @media screen and (max-width: 768px) {
+      order: 1;
+    }
+  }
+}
+.user-right-buttons {
+  @media screen and (max-width: 768px) {
+    display: grid;
+    padding-top: 20px;
+  }
+}
+.img-wrapper {
+  overflow: inherit;
+  .product-image {
+    max-width: 250px;
+  }
+}
+.bottom-buttons {
+  display: flex;
+}
+
+img.hover-zoom {
+  will-change: transform;
+  transition: transform 750ms;
+  // transition: all 0.3s ease 0s;
+  width: 100%;
+}
+img.hover-zoom:hover {
+  transform: scale(1.75);
+  transition-delay: 2s;
+}
+.quantity-wrapper {
+  color: $navbar-background;
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: 768px) {
+  }
+  .quantity-circle {
+    background-color: $navbar-background;
+    border-radius: 50%;
+    color: $primary-text;
+    font-size: $font-size-normal;
+    text-align: center;
+    padding-top: 3px;
+    width: 25px;
+    height: 25px;
+    // padding: 10px;
+    &.white {
+      background-color: white;
+      cursor: pointer;
+    }
+    &.black {
+      background-color: black;
+      cursor: pointer;
+    }
+  }
+}

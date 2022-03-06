@@ -1,9 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Container } from "react-bootstrap";
-import BottomNav from "../components/BottomNav";
 import HomeFeaturedProducts from "../components/HomeFeaturedProducts";
-import NavBar from "../components/NavBar";
 import PrimaryLayout from "../components/layout/PrimaryLayout";
 
 export default function Home() {

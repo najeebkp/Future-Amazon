@@ -1,11 +1,16 @@
 import React from "react";
+import Link from "next/link";
 import { Col, Row, Container, Button } from "react-bootstrap";
 import { ArrowRightShort } from "@styled-icons/bootstrap/ArrowRightShort";
 import { ArrowLeftShort } from "@styled-icons/bootstrap/ArrowLeftShort";
 
 import { featuringList, featuredListSmall } from "../constants/constantData";
+import { GlobalContext } from "./context/GlobalContextProvider";
 
 function HomeFeaturedProducts() {
+  //context
+  const { globalState, globalDispatch } = React.useContext(GlobalContext);
+
   const [featuring, setFeaturing] = React.useState(0);
 
   const handleNext = (key) => {
@@ -50,12 +55,12 @@ function HomeFeaturedProducts() {
       </>
     );
   };
-  // console.log(featuring);
+
   return (
     <div className="home-featured-products-wrapper">
       <Container style={{ margin: 0, maxWidth: "none" }}>
         <Row>
-          <Col md={8} className="feature-1">
+          <Col md={8} className={"feature-1 " + globalState.theme}>
             <Container>
               <Row className="justify-content-center h-100">
                 <Col
@@ -69,22 +74,40 @@ function HomeFeaturedProducts() {
                           {" "}
                           {featuringList[featuring]?.fname}{" "}
                         </div>
-                        <div className="key-color font-size-big bold">
+                        <div
+                          className={
+                            "key-color font-size-big bold " + globalState.theme
+                          }
+                        >
                           {featuringList[featuring]?.lname}
                         </div>
                       </div>
                       <div className="d-flex justify-content-end">
-                        <div className="key-color font-size-big bold">
+                        <div
+                          className={
+                            "key-color font-size-big bold " + globalState.theme
+                          }
+                        >
                           {"$"}
                         </div>
-                        <div className="font-size-very-big bold key-color">
+                        <div
+                          className={
+                            "font-size-very-big bold key-color " +
+                            globalState.theme
+                          }
+                        >
                           {
                             featuringList[featuring]?.price
                               .toString()
                               .split(".")[0]
                           }
                         </div>
-                        <div className="font-size-normal bold key-color align-self-end pb-2">
+                        <div
+                          className={
+                            "font-size-normal bold key-color align-self-end pb-2 " +
+                            globalState.theme
+                          }
+                        >
                           {
                             featuringList[featuring]?.price
                               .toString()
@@ -93,17 +116,22 @@ function HomeFeaturedProducts() {
                         </div>
                       </div>
                       <div className="d-flex align-items-baseline justify-content-end">
-                        <Button className="primary-cta">
-                          Buy now <ArrowRightShort size={25} />
-                        </Button>
+                        <Link href={featuringList[featuring]?.id}>
+                          <Button
+                            className={"primary-cta " + globalState.theme}
+                          >
+                            Buy now <ArrowRightShort size={25} />
+                          </Button>
+                        </Link>
                       </div>
                     </Col>
                     <Col>
                       <Row className="justify-content-end">
                         <Col className="text-center">
                           <img
+                            className="feature-image"
                             style={{ maxWidth: "250px" }}
-                            src={featuringList[featuring]?.image}
+                            src={featuringList[featuring]?.image[0]}
                           />
                         </Col>
                       </Row>
@@ -115,13 +143,13 @@ function HomeFeaturedProducts() {
               <Row className="justify-content-end position-relative">
                 <Col sm={2} className="text-center pt-2">
                   <Button
-                    className="primary-cta m-1 p-1"
+                    className={"primary-cta m-1 p-1 " + globalState.theme}
                     onClick={() => handleNext("prev")}
                   >
                     <ArrowLeftShort size={30} />
                   </Button>
                   <Button
-                    className="primary-cta m-1 p-1"
+                    className={"primary-cta m-1 p-1 " + globalState.theme}
                     onClick={() => handleNext()}
                   >
                     <ArrowRightShort size={30} />
@@ -139,6 +167,7 @@ function HomeFeaturedProducts() {
                   </Col>
                   <Col>
                     <img
+                      className="feature-image"
                       style={{ maxWidth: "150px" }}
                       src={featuredListSmall[0]?.image}
                     />
@@ -154,6 +183,7 @@ function HomeFeaturedProducts() {
                   </Col>
                   <Col>
                     <img
+                      className="feature-image"
                       style={{ maxWidth: "120px" }}
                       src={featuredListSmall[1]?.image}
                     />
@@ -172,6 +202,7 @@ function HomeFeaturedProducts() {
               </Col>
               <Col sm={7}>
                 <img
+                  className="feature-image"
                   style={{ maxWidth: "250px" }}
                   src={featuredListSmall[2]?.image}
                 />
@@ -182,6 +213,7 @@ function HomeFeaturedProducts() {
             <Row>
               <Col sm={4}>
                 <img
+                  className="feature-image"
                   style={{ maxWidth: "140px" }}
                   src={featuredListSmall[3]?.image}
                 />
@@ -199,6 +231,7 @@ function HomeFeaturedProducts() {
               </Col>
               <Col>
                 <img
+                  className="feature-image"
                   style={{ maxWidth: "200px", paddingTop: "30px" }}
                   src={featuredListSmall[4]?.image}
                 />

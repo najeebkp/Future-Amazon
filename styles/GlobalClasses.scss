@@ -1,11 +1,18 @@
+@import "./Constants.scss";
 .vr {
   color: rgb(116, 115, 115);
 }
 .disabled-color {
   color: $disabled-color;
+  &.light {
+    color: $light-grey-color;
+  }
 }
 .light-grey-color {
   color: $light-grey-color;
+  &.light {
+    color: black;
+  }
 }
 .key-color-2 {
   color: $key-color-2;
@@ -13,18 +20,36 @@
 .key-color-3 {
   color: $key-color-3;
 }
+.key-color-bg {
+  background-color: $key-color;
+  &.light {
+    background-color: $key-color-2;
+  }
+}
 
 .very-small-font {
   font-size: $font-size-very-small;
 }
 .small-font {
   font-size: $font-size-small;
+  &.light {
+    color: $light-grey-color;
+  }
 }
 .normal-font {
   font-size: $font-size-normal;
+  &.light {
+    color: $key-color-2;
+    &.desc {
+      color: $primary-text;
+    }
+  }
 }
 .font-size-big {
   font-size: $font-size-big;
+}
+.font-size-normal-2 {
+  font-size: $font-size-normal-2;
 }
 .primary-cta {
   background: $key-color !important;
@@ -34,6 +59,61 @@
   font-size: $font-size-small !important;
   font-weight: 600 !important;
   padding: 5px 5px 3px 15px !important;
+  &.light {
+    background: $key-color-2 !important;
+  }
+
+  &.round {
+    border-radius: 50% !important;
+  }
+  &.padding-normal {
+    padding: 5px 10px !important;
+  }
+  &.oval {
+    border-radius: 20px !important;
+    border: 1px solid $navbar-background !important;
+    padding: 10px 25px !important;
+  }
+  &:hover {
+    background: $background !important;
+    color: $key-color !important;
+    &.light {
+      color: $key-color-2 !important;
+    }
+  }
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+.secondary-cta {
+  background: $navbar-background !important;
+  color: $key-color !important;
+  border: none !important;
+  border-radius: 0px !important;
+  font-size: $font-size-small !important;
+  font-weight: 600 !important;
+  padding: 5px 5px 3px 15px !important;
+  &.light {
+    color: $key-color-2 !important;
+  }
+
+  &.oval {
+    border-radius: 20px !important;
+    padding: 10px 25px !important;
+  }
+  &.round {
+    border-radius: 50% !important;
+  }
+  &:hover {
+    background: $background !important;
+    color: $key-color !important;
+    &.light {
+      color: $key-color-2 !important;
+    }
+  }
+  &:focus {
+    box-shadow: none !important;
+  }
 }
 .font-size-very-big {
   font-size: $font-size-very-big;
@@ -46,12 +126,18 @@
 }
 .primary-color-text {
   color: $primary-text;
+  &.light {
+    color: $light-grey-color;
+  }
 }
 .bold {
   font-weight: bold;
 }
 .key-color {
   color: $key-color;
+  &.light {
+    color: $key-color-2;
+  }
 }
 .hamburger {
   display: none;
