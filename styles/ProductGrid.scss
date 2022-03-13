@@ -1,0 +1,31 @@
+.product-grid-wrapper {
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 0px;
+    padding-top: 10px;
+  }
+  .product-card-wrapper {
+    color: #000;
+    width: 100%;
+    margin: 0 20px;
+    flex-basis: 21%;
+    padding: 10px 20px;
+    cursor: pointer;
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    }
+    @media screen and (max-width: 768px) {
+      flex-basis: 100%;
+    }
+    .product-card-image {
+      height: 200px;
+      padding: 10px;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+
 import { Col, Row, Container, Button } from "react-bootstrap";
 import { ArrowRightShort } from "@styled-icons/bootstrap/ArrowRightShort";
 import { ArrowLeftShort } from "@styled-icons/bootstrap/ArrowLeftShort";
@@ -12,14 +13,17 @@ function HomeFeaturedProducts() {
   const { globalState, globalDispatch } = React.useContext(GlobalContext);
 
   const [featuring, setFeaturing] = React.useState(0);
+  const [spinnerTrigger, setSpinnerTrigger] = React.useState(false);
 
   const handleNext = (key) => {
     if (key) {
       featuring != 0 ? setFeaturing(featuring - 1) : setFeaturing(2);
+
       return;
     }
     if (featuring < 2) {
       setFeaturing(featuring + 1);
+
       return;
     }
     setFeaturing(0);

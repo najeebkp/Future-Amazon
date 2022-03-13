@@ -133,8 +133,8 @@ function NavBar() {
                 className="navbar-image"
                 src={
                   globalState.theme == "dark"
-                    ? "/Amazon-Logo.png"
-                    : "https://www.peninsulafamilyservice.org/wp-content/uploads/2019/08/amazon-logo-transparent.png"
+                    ? "/Amazon-Logo.webp"
+                    : "/Amazon-Logo-White.webp"
                 }
                 alt="Amazon-logo"
                 width={globalState.theme == "dark" ? 110 : 125}

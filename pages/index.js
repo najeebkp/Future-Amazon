@@ -1,5 +1,6 @@
 import Head from "next/head";
 import HomeFeaturedProducts from "../components/HomeFeaturedProducts";
+import ProductListing from "../components/ProductListing";
 import PrimaryLayout from "../components/layout/PrimaryLayout";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       </Head>
       <div>
         <HomeFeaturedProducts></HomeFeaturedProducts>
+        <ProductListing></ProductListing>
       </div>
     </div>
   );
