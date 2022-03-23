@@ -7,6 +7,7 @@ export default function SideBar() {
         Show results for
       </div>
       <div>
+        <div className="key-color-2 small-font bold pt-3">All</div>
         <div className="disabled-color small-font bold pt-3">Electronics</div>
         <div className="disabled-color small-font bold pt-3">
           {"Men's Fashion"}

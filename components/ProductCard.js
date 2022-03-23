@@ -29,7 +29,7 @@ function ProductCard(props) {
     ));
   };
   return (
-    <Link href={props.item.id}>
+    <Link href={props.item.id.toString()}>
       <div className="product-card-wrapper">
         <div className="product-card-image">
           <img src={props.item.image}></img>

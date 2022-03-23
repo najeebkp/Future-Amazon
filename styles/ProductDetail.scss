@@ -52,6 +52,8 @@
   overflow: inherit;
   .product-image {
     max-width: 250px;
+    z-index: 99999;
+    position: relative;
   }
 }
 .bottom-buttons {

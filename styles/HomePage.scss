@@ -27,14 +27,41 @@
       rgba(58, 58, 58, 1) 30%,
       rgba(16, 27, 31, 1) 100%
     );
+    .fname {
+      color: $disabled-color;
+    }
+    .lname {
+      color: $light-grey-color;
+    }
+    .price {
+      color: $disabled-color;
+    }
   }
   .feature-3 {
     padding: 50px 0px;
     background-color: #424242;
+    .fname {
+      color: $disabled-color;
+    }
+    .lname {
+      color: $key-color-2;
+    }
+    .price {
+      color: $key-color-2;
+    }
   }
   .feature-4 {
     padding: 50px 10px;
     background-color: #191b1d;
+    .fname {
+      color: $disabled-color;
+    }
+    .lname {
+      color: $key-color-2;
+    }
+    .price {
+      color: $primary-text;
+    }
   }
   .feature-5 {
     padding: 63px 20px;
@@ -46,11 +73,29 @@
       rgba(71, 71, 71, 1) 20%,
       rgba(255, 255, 255, 1) 20%
     );
+    .fname {
+      color: $disabled-color;
+    }
+    .lname {
+      color: $key-color-2;
+    }
+    .price {
+      color: $key-color-3;
+    }
   }
   .feature-6 {
     padding: 63px 20px;
     width: 100%;
     background-color: #e12419;
+    .fname {
+      color: $primary-text;
+    }
+    .lname {
+      color: $primary-text;
+    }
+    .price {
+      color: $primary-text;
+    }
   }
 }
 .feature-image {

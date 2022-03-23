@@ -33,26 +33,17 @@ function HomeFeaturedProducts() {
     return (
       <>
         <div className="d-flex align-items-baseline">
-          <div className={`font-size-big bold ` + data.color.fname}>
-            {data.fname}
-          </div>
-          <div
-            className={`bold ` + data.color.lname}
-            style={{ fontSize: "30px" }}
-          >
+          <div className={`font-size-big bold fname`}>{data.fname}</div>
+          <div className={`bold lname`} style={{ fontSize: "30px" }}>
             {data.lname}
           </div>
         </div>
         <div className="d-flex justify-content-end">
-          <div className={`font-size-big bold ` + data.color.price}>{"$"}</div>
-          <div className={`font-size-very-big bold ` + data.color.price}>
+          <div className={`font-size-big bold price`}>{"$"}</div>
+          <div className={`font-size-very-big bold price`}>
             {data.price?.toString().split(".")[0]}
           </div>
-          <div
-            className={
-              `font-size-normal bold align-self-end pb-2 ` + data.color.price
-            }
-          >
+          <div className={`font-size-normal bold align-self-end pb-2 price`}>
             {data.price?.toString().split(".")[1]}
           </div>
         </div>
@@ -120,7 +111,7 @@ function HomeFeaturedProducts() {
                         </div>
                       </div>
                       <div className="d-flex align-items-baseline justify-content-end">
-                        <Link href={featuringList[featuring]?.id}>
+                        <Link href={featuringList[featuring]?.id.toString()}>
                           <Button
                             className={"primary-cta " + globalState.theme}
                           >
@@ -170,11 +161,13 @@ function HomeFeaturedProducts() {
                     <ReturnData data={featuredListSmall[0]} />
                   </Col>
                   <Col>
-                    <img
-                      className="feature-image"
-                      style={{ maxWidth: "150px" }}
-                      src={featuredListSmall[0]?.image}
-                    />
+                    <Link href={featuredListSmall[0]?.id.toString()}>
+                      <img
+                        className="feature-image"
+                        style={{ maxWidth: "150px" }}
+                        src={featuredListSmall[0]?.image}
+                      />
+                    </Link>
                   </Col>
                 </Row>
               </Col>
@@ -186,11 +179,13 @@ function HomeFeaturedProducts() {
                     <ReturnData data={featuredListSmall[1]} />
                   </Col>
                   <Col>
-                    <img
-                      className="feature-image"
-                      style={{ maxWidth: "120px" }}
-                      src={featuredListSmall[1]?.image}
-                    />
+                    <Link href={featuredListSmall[1]?.id.toString()}>
+                      <img
+                        className="feature-image"
+                        style={{ maxWidth: "120px" }}
+                        src={featuredListSmall[1]?.image}
+                      />
+                    </Link>
                   </Col>
                 </Row>
               </Col>
@@ -205,22 +200,26 @@ function HomeFeaturedProducts() {
                 <ReturnData data={featuredListSmall[2]} />
               </Col>
               <Col sm={7}>
-                <img
-                  className="feature-image"
-                  style={{ maxWidth: "250px" }}
-                  src={featuredListSmall[2]?.image}
-                />
+                <Link href={featuredListSmall[2]?.id.toString()}>
+                  <img
+                    className="feature-image"
+                    style={{ maxWidth: "250px" }}
+                    src={featuredListSmall[2]?.image}
+                  />
+                </Link>
               </Col>
             </Row>
           </Col>
           <Col className="feature-5">
             <Row>
               <Col sm={4}>
-                <img
-                  className="feature-image"
-                  style={{ maxWidth: "140px" }}
-                  src={featuredListSmall[3]?.image}
-                />
+                <Link href={featuredListSmall[3]?.id.toString()}>
+                  <img
+                    className="feature-image"
+                    style={{ maxWidth: "140px" }}
+                    src={featuredListSmall[3]?.image}
+                  />
+                </Link>
               </Col>
               <Col>
                 <ReturnData data={featuredListSmall[3]} />
@@ -234,11 +233,13 @@ function HomeFeaturedProducts() {
                 <ReturnData data={featuredListSmall[4]} />
               </Col>
               <Col>
-                <img
-                  className="feature-image"
-                  style={{ maxWidth: "200px", paddingTop: "30px" }}
-                  src={featuredListSmall[4]?.image}
-                />
+                <Link href={featuredListSmall[4]?.id.toString()}>
+                  <img
+                    className="feature-image"
+                    style={{ maxWidth: "200px", paddingTop: "30px" }}
+                    src={featuredListSmall[4]?.image}
+                  />
+                </Link>
               </Col>
             </Row>
           </Col>

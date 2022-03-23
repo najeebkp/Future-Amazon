@@ -159,6 +159,7 @@ function ProductDetail(props) {
                         "primary-cta round m-1 p-1 " + globalState.theme
                       }
                       onClick={() => handleNext("prev")}
+                      disabled={productImage == 0}
                     >
                       <ArrowLeftShort size={30} />
                     </Button>
@@ -173,6 +174,7 @@ function ProductDetail(props) {
                         "primary-cta round m-1 p-1 " + globalState.theme
                       }
                       onClick={() => handleNext()}
+                      disabled={product.image.length - 1 == productImage}
                     >
                       <ArrowRightShort size={30} />
                     </Button>
