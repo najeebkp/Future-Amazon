@@ -7,6 +7,8 @@ import { ArrowLeftShort } from "@styled-icons/bootstrap/ArrowLeftShort";
 
 import { GlobalContext } from "./context/GlobalContextProvider";
 
+import Image from "./Image";
+
 function HomeFeaturedProducts(props) {
   //context
   const { globalState, globalDispatch } = React.useContext(GlobalContext);
@@ -142,11 +144,11 @@ function HomeFeaturedProducts(props) {
                         <Col>
                           <Row className="justify-content-end">
                             <Col className="text-center">
-                              <img
-                                className="feature-image"
-                                style={{ maxWidth: "250px" }}
+                              <Image
+                                className={`feature-image`}
                                 src={props.topFeatured[featuring]?.image[0]}
-                              />
+                                style={{ maxWidth: "250px" }}
+                              ></Image>
                             </Col>
                           </Row>
                         </Col>
@@ -179,19 +181,17 @@ function HomeFeaturedProducts(props) {
                       <Col>
                         <ReturnData data={props.featured[0]} />
                       </Col>
-                      <Col>
-                        {props && props.featured && props.featured[0] && (
-                          <Link
-                            href={props.featured[0] && props.featured[0]._id}
-                          >
-                            <img
-                              className="feature-image"
-                              style={{ maxWidth: "150px" }}
+                      {props && props.featured && props.featured[0] && (
+                        <Link href={props.featured[0] && props.featured[0]._id}>
+                          <Col>
+                            <Image
+                              className={`feature-image`}
                               src={props.featured[0]?.image}
+                              style={{ maxWidth: "150px" }}
                             />
-                          </Link>
-                        )}
-                      </Col>
+                          </Col>
+                        </Link>
+                      )}
                     </Row>
                   </Col>
                 </Row>
@@ -201,17 +201,17 @@ function HomeFeaturedProducts(props) {
                       <Col>
                         <ReturnData data={props.featured[1]} />
                       </Col>
-                      <Col>
-                        {props && props.featured && props.featured[1] && (
-                          <Link href={props.featured[1]?._id.toString()}>
-                            <img
-                              className="feature-image"
-                              style={{ maxWidth: "120px" }}
+                      {props && props.featured && props.featured[1] && (
+                        <Link href={props.featured[1]?._id.toString()}>
+                          <Col>
+                            <Image
+                              className={`feature-image`}
                               src={props.featured[1]?.image}
-                            />
-                          </Link>
-                        )}
-                      </Col>
+                              style={{ maxWidth: "120px" }}
+                            ></Image>
+                          </Col>
+                        </Link>
+                      )}
                     </Row>
                   </Col>
                 </Row>
@@ -224,32 +224,32 @@ function HomeFeaturedProducts(props) {
                     {" "}
                     <ReturnData data={props.featured[2]} />
                   </Col>
-                  <Col sm={7}>
-                    {props && props.featured && props.featured[2] && (
-                      <Link href={props.featured[2]?._id.toString()}>
-                        <img
-                          className="feature-image"
-                          style={{ maxWidth: "250px" }}
+                  {props && props.featured && props.featured[2] && (
+                    <Link href={props.featured[2]?._id.toString()}>
+                      <Col sm={7}>
+                        <Image
+                          className={`feature-image`}
                           src={props.featured[2]?.image}
-                        />
-                      </Link>
-                    )}
-                  </Col>
+                          style={{ maxWidth: "250px" }}
+                        ></Image>
+                      </Col>
+                    </Link>
+                  )}
                 </Row>
               </Col>
               <Col className="feature-5">
                 <Row>
-                  <Col sm={4}>
-                    {props && props.featured && props.featured[3] && (
-                      <Link href={props.featured[3]?._id.toString()}>
-                        <img
-                          className="feature-image"
-                          style={{ maxWidth: "140px" }}
+                  {props && props.featured && props.featured[3] && (
+                    <Link href={props.featured[3]?._id.toString()}>
+                      <Col sm={4}>
+                        <Image
+                          className={`feature-image`}
                           src={props.featured[3]?.image}
-                        />
-                      </Link>
-                    )}
-                  </Col>
+                          style={{ maxWidth: "140px" }}
+                        ></Image>
+                      </Col>
+                    </Link>
+                  )}
                   <Col>
                     <ReturnData data={props.featured[3]} />
                   </Col>
@@ -261,17 +261,17 @@ function HomeFeaturedProducts(props) {
                     {" "}
                     <ReturnData data={props.featured[4]} />
                   </Col>
-                  <Col>
-                    {props && props.featured && props.featured[4] && (
-                      <Link href={props.featured[4]?._id.toString()}>
-                        <img
-                          className="feature-image"
-                          style={{ maxWidth: "200px", paddingTop: "30px" }}
+                  {props && props.featured && props.featured[4] && (
+                    <Link href={props.featured[4]?._id.toString()}>
+                      <Col>
+                        <Image
+                          className={`feature-image`}
                           src={props.featured[4]?.image}
-                        />
-                      </Link>
-                    )}
-                  </Col>
+                          style={{ maxWidth: "200px", paddingTop: "30px" }}
+                        ></Image>
+                      </Col>
+                    </Link>
+                  )}
                 </Row>
               </Col>
             </Row>

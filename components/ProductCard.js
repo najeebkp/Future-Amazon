@@ -2,6 +2,7 @@ import React from "react";
 import { Star } from "@styled-icons/bootstrap/Star";
 import { StarFill } from "@styled-icons/bootstrap/StarFill";
 import Link from "next/link";
+import Image from "./Image";
 
 function ProductCard(props) {
   // rating
@@ -32,13 +33,14 @@ function ProductCard(props) {
       </>
     ));
   };
+
   return (
     <>
       {props && props.item && (
         <Link href={props.item._id.toString()}>
           <div className="product-card-wrapper">
             <div className="product-card-image">
-              <img src={props.item.image[0]}></img>
+              <Image className={"img"} src={props.item.image[0]}></Image>
             </div>
             <div className="normal-font">
               {props.item.fname + " " + props.item.lname}

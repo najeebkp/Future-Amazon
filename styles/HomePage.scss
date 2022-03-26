@@ -101,8 +101,12 @@
 .feature-image {
   will-change: transform;
   transition: transform 750ms;
+  display: none;
   cursor: pointer;
   &:hover {
     transform: scale(1.2, 1.2);
+  }
+  &.show {
+    display: block;
   }
 }

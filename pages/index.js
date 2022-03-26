@@ -4,14 +4,17 @@ import HomeFeaturedProducts from "../components/HomeFeaturedProducts";
 import ProductListing from "../components/ProductListing";
 import PrimaryLayout from "../components/layout/PrimaryLayout";
 import { APIFetcher } from "../services/ApiService";
+import Loading from "../components/Loading";
 
 export default function Home() {
   const [topFeatured, setTopFeatured] = React.useState([]);
   const [featured, setFeatured] = React.useState([]);
   const [productsList, setProductsList] = React.useState([]);
+  const [loading, setLoading] = React.useState();
 
   //setting up productslist
   React.useEffect(() => {
+    setLoading(true);
     APIFetcher("")
       .then((response) => {
         let topFeaturedProducts = response.filter((item) => item.top_featured);
@@ -19,6 +22,7 @@ export default function Home() {
         setProductsList(response);
         setFeatured(featuredProducts);
         setTopFeatured(topFeaturedProducts);
+        setLoading(false);
       })
       .catch((error) => {
         console.log("error", error);
@@ -32,15 +36,23 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <HomeFeaturedProducts
-          topFeatured={topFeatured}
-          featured={featured}
-          productsList={productsList}
-        ></HomeFeaturedProducts>
+        <>
+          {!loading ? (
+            <>
+              <HomeFeaturedProducts
+                topFeatured={topFeatured}
+                featured={featured}
+                productsList={productsList}
+              ></HomeFeaturedProducts>
 
-        <ProductListing
-          productsList={productsList && productsList}
-        ></ProductListing>
+              <ProductListing
+                productsList={productsList && productsList}
+              ></ProductListing>
+            </>
+          ) : (
+            <Loading />
+          )}
+        </>
       </div>
     </div>
   );

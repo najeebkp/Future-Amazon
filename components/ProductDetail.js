@@ -6,9 +6,12 @@ import { ArrowLeftShort } from "@styled-icons/bootstrap/ArrowLeftShort";
 import { ShoppingCart } from "@styled-icons/zondicons/ShoppingCart";
 import { GlobalContext } from "./context/GlobalContextProvider";
 import { APIFetcher } from "../services/ApiService";
+import Loading from "../components/Loading";
+import Image from "../components/Image";
 
 function ProductDetail(props) {
   const { globalState, globalDispatch } = React.useContext(GlobalContext);
+  const [loading, setLoading] = React.useState();
   const [product, setProduct] = React.useState();
   const [productImage, setProductImage] = React.useState(0);
   const [quantity, setQuantity] = React.useState(1);
@@ -16,10 +19,12 @@ function ProductDetail(props) {
     APIFetcher(props.id)
       .then((response) => {
         setProduct(response);
+        setLoading(false);
       })
       .catch((error) => {});
   };
   React.useEffect(() => {
+    setLoading(true);
     if (props && props.id) {
       getProductDetails(props?.id);
     }
@@ -47,7 +52,7 @@ function ProductDetail(props) {
   const ImageHoverZoom = ({ imagePath }) => {
     return (
       <div className="img-wrapper">
-        <img className="product-image hover-zoom" src={imagePath} />
+        <Image className={`product-image hover-zoom`} src={imagePath}></Image>
       </div>
     );
   };
@@ -92,7 +97,7 @@ function ProductDetail(props) {
   return (
     <div>
       {/* wrapper with bg */}
-      {product && (
+      {!loading && product ? (
         <div>
           <div className={"product-detail-wrapper p-5 " + globalState.theme}>
             {/* content row */}
@@ -270,6 +275,8 @@ function ProductDetail(props) {
             </Col>
           </Row>
         </div>
+      ) : (
+        <Loading />
       )}
     </div>
   );
