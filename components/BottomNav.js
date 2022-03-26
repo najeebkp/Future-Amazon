@@ -40,7 +40,7 @@ function BottomNav() {
               className="navbar-image"
               src={
                 globalState.theme == "dark"
-                  ? "/Amazon-Logo.png"
+                  ? "/Amazon-Logo.webp"
                   : "https://www.peninsulafamilyservice.org/wp-content/uploads/2019/08/amazon-logo-transparent.png"
               }
               alt="Picture of the author"

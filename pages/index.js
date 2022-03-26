@@ -1,9 +1,29 @@
+import React from "react";
 import Head from "next/head";
 import HomeFeaturedProducts from "../components/HomeFeaturedProducts";
 import ProductListing from "../components/ProductListing";
 import PrimaryLayout from "../components/layout/PrimaryLayout";
+import { APIFetcher } from "../services/ApiService";
 
 export default function Home() {
+  const [topFeatured, setTopFeatured] = React.useState([]);
+  const [featured, setFeatured] = React.useState([]);
+  const [productsList, setProductsList] = React.useState([]);
+
+  //setting up productslist
+  React.useEffect(() => {
+    APIFetcher("")
+      .then((response) => {
+        let topFeaturedProducts = response.filter((item) => item.top_featured);
+        let featuredProducts = response.filter((item) => item.featured);
+        setProductsList(response);
+        setFeatured(featuredProducts);
+        setTopFeatured(topFeaturedProducts);
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  }, []);
   return (
     <div>
       <Head>
@@ -12,8 +32,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <HomeFeaturedProducts></HomeFeaturedProducts>
-        <ProductListing></ProductListing>
+        <HomeFeaturedProducts
+          topFeatured={topFeatured}
+          featured={featured}
+          productsList={productsList}
+        ></HomeFeaturedProducts>
+
+        <ProductListing
+          productsList={productsList && productsList}
+        ></ProductListing>
       </div>
     </div>
   );

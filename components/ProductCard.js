@@ -9,8 +9,12 @@ function ProductCard(props) {
   const Rating = ({ star }) => {
     return (
       <>
-        <FilledStar star={star} />
-        <UnfilledStar star={star} />
+        {star && (
+          <>
+            <FilledStar star={star} />
+            <UnfilledStar star={star} />
+          </>
+        )}
       </>
     );
   };
@@ -29,38 +33,42 @@ function ProductCard(props) {
     ));
   };
   return (
-    <Link href={props.item.id.toString()}>
-      <div className="product-card-wrapper">
-        <div className="product-card-image">
-          <img src={props.item.image}></img>
-        </div>
-        <div className="normal-font">
-          {props.item.fname + " " + props.item.lname}
-        </div>
-        <div className="pt-1 disabled-color small-font mb-1">
-          {props.item.seller}
-        </div>
-        <div className="d-flex">
-          <Rating star={props.item.rating.star} />
-          &ensp;
-          <div className="small-font" style={{ color: "blue" }}>
-            {props.item.rating.total}
+    <>
+      {props && props.item && (
+        <Link href={props.item._id.toString()}>
+          <div className="product-card-wrapper">
+            <div className="product-card-image">
+              <img src={props.item.image[0]}></img>
+            </div>
+            <div className="normal-font">
+              {props.item.fname + " " + props.item.lname}
+            </div>
+            <div className="pt-1 disabled-color small-font mb-1">
+              {props.item.seller}
+            </div>
+            <div className="d-flex">
+              <Rating star={props.item.rating && props.item.rating.star} />
+              &ensp;
+              <div className="small-font" style={{ color: "blue" }}>
+                {props.item.rating && props.item.rating.total}
+              </div>
+            </div>
+            <div
+              className="d-flex align-items-top bold mt-2"
+              style={{ gap: "1px" }}
+            >
+              <span style={{ marginTop: "5px", fontSize: "10px" }}>$</span>
+              <span className="font-size-small">
+                {props.item.price.toString().split(".")[0]}
+              </span>
+              <span style={{ marginTop: "2px", fontSize: "10px" }}>
+                {props.item.price.toString().split(".")[1]}
+              </span>
+            </div>
           </div>
-        </div>
-        <div
-          className="d-flex align-items-top bold mt-2"
-          style={{ gap: "1px" }}
-        >
-          <span style={{ marginTop: "5px", fontSize: "10px" }}>$</span>
-          <span className="font-size-small">
-            {props.item.price.toString().split(".")[0]}
-          </span>
-          <span style={{ marginTop: "2px", fontSize: "10px" }}>
-            {props.item.price.toString().split(".")[1]}
-          </span>
-        </div>
-      </div>
-    </Link>
+        </Link>
+      )}
+    </>
   );
 }
 

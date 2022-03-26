@@ -1,11 +1,11 @@
 import { ContactsBookUpload } from "@styled-icons/remix-line";
 import React, { useContext } from "react";
-import { featuringList, featuredListSmall } from "../constants/constantData";
 import { Row, Col, Button } from "react-bootstrap";
 import { ArrowRightShort } from "@styled-icons/bootstrap/ArrowRightShort";
 import { ArrowLeftShort } from "@styled-icons/bootstrap/ArrowLeftShort";
 import { ShoppingCart } from "@styled-icons/zondicons/ShoppingCart";
 import { GlobalContext } from "./context/GlobalContextProvider";
+import { APIFetcher } from "../services/ApiService";
 
 function ProductDetail(props) {
   const { globalState, globalDispatch } = React.useContext(GlobalContext);
@@ -13,14 +13,16 @@ function ProductDetail(props) {
   const [productImage, setProductImage] = React.useState(0);
   const [quantity, setQuantity] = React.useState(1);
   const getProductDetails = (productId) => {
-    let allProducts = [...featuringList, ...featuredListSmall];
-    let selectedProduct = allProducts.filter(
-      (product) => product.id == productId,
-    );
-    setProduct(selectedProduct[0]);
+    APIFetcher(props.id)
+      .then((response) => {
+        setProduct(response);
+      })
+      .catch((error) => {});
   };
   React.useEffect(() => {
-    getProductDetails(props?.id);
+    if (props && props.id) {
+      getProductDetails(props?.id);
+    }
   }, [props]);
 
   // first letter to capital

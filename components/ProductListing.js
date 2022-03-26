@@ -3,7 +3,7 @@ import { Col, Row, Container } from "react-bootstrap";
 import SideBar from "./SideBar";
 import ProductGrid from "./ProductGrid";
 
-function ProductListing() {
+function ProductListing(props) {
   return (
     <div className="p-5" style={{ background: "#fff" }}>
       <Row>
@@ -11,7 +11,9 @@ function ProductListing() {
           <SideBar />
         </Col>
         <Col>
-          <ProductGrid />
+          {props && props.productsList && (
+            <ProductGrid productsList={props.productsList} />
+          )}
         </Col>
       </Row>
     </div>
