@@ -5,7 +5,7 @@ import PrimaryLayout from "../components/layout/PrimaryLayout";
 export default function CartView() {
   return (
     <div>
-      <Cart></Cart>
+      <Cart />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { GlobalContext } from "./context/GlobalContextProvider";
 
 import { Container, Row, Col, Button } from "react-bootstrap";
@@ -74,106 +75,111 @@ function Cart() {
       <Container>
         <Row>
           <Col>
-            {globalState.cartItems.length > 0 && (
-              <React.Fragment>
-                <div className="font-size-normal-2 bold">Shopping Cart</div>
-                <div
-                  className="text-end small-font"
-                  style={{ marginRight: "10px" }}
-                >
-                  Price
-                </div>
-              </React.Fragment>
-            )}
-            {globalState.cartItems.length > 0 ? (
-              globalState.cartItems.map((item, key) => (
-                <div key={key} className="cart-item">
-                  <div className="left">
-                    <img src={item.item.image[0]} />
+            <>
+              {globalState.cartItems.length > 0 && (
+                <React.Fragment>
+                  <div className="font-size-normal-2 bold">Shopping Cart</div>
+                  <div
+                    className="text-end small-font"
+                    style={{ marginRight: "10px" }}
+                  >
+                    Price
                   </div>
-                  <div className="center">
-                    <div>
-                      <div>{item.item.fname + " " + item.item.lname}</div>
-                      <div className="small-font disabled-color">In Stock</div>
-                      <div
-                        className={
-                          "small-font light-grey-color show " +
-                          globalState.theme
-                        }
-                      >
-                        Eligible for FREE Shipping
-                      </div>
-                      {/* quantity */}
-                      <div className="quantity-wrapper">
-                        <Button
-                          className={
-                            "primary-cta round padding-normal very-small " +
-                            globalState.theme
-                          }
-                          onClick={() =>
-                            handleQuantity("decrease", item.item._id)
-                          }
-                        >
-                          -
-                        </Button>
-                        <div className="quantity-circle transparent">
-                          {item.count}
+                </React.Fragment>
+              )}
+            </>
+            <>
+              {globalState.cartItems.length > 0 ? (
+                globalState.cartItems.map((item, key) => (
+                  <div key={key} className="cart-item">
+                    <div className="left">
+                      <img src={item.item.image[0]} />
+                    </div>
+                    <div className="center">
+                      <div>
+                        <div>{item.item.fname + " " + item.item.lname}</div>
+                        <div className="small-font disabled-color">
+                          In Stock
                         </div>
-                        <Button
+                        <div
                           className={
-                            "primary-cta round padding-normal very-small " +
+                            "small-font light-grey-color show " +
                             globalState.theme
                           }
-                          onClick={() =>
-                            handleQuantity("increase", item.item._id)
-                          }
                         >
-                          +
-                        </Button>
-                        &emsp;
-                        <div className="vr"></div>&emsp;
-                        <div
-                          style={{ cursor: "pointer" }}
-                          className={
-                            `small-font key-color ` + globalState.theme
-                          }
-                          onClick={() => removeItem(item)}
-                        >
-                          Delete
+                          Eligible for FREE Shipping
+                        </div>
+
+                        <div className="quantity-wrapper">
+                          <Button
+                            className={
+                              "primary-cta round padding-normal very-small " +
+                              globalState.theme
+                            }
+                            onClick={() =>
+                              handleQuantity("decrease", item.item._id)
+                            }
+                          >
+                            -
+                          </Button>
+                          <div className="quantity-circle transparent">
+                            {item.count}
+                          </div>
+                          <Button
+                            className={
+                              "primary-cta round padding-normal very-small " +
+                              globalState.theme
+                            }
+                            onClick={() =>
+                              handleQuantity("increase", item.item._id)
+                            }
+                          >
+                            +
+                          </Button>
+                          &emsp;
+                          <div className="vr"></div>&emsp;
+                          <div
+                            style={{ cursor: "pointer" }}
+                            className={
+                              `small-font key-color ` + globalState.theme
+                            }
+                            onClick={() => removeItem(item)}
+                          >
+                            Delete
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <div className={`right key-color ` + globalState.theme}>
+                      {"$ " + item.item.price}
+                    </div>
                   </div>
-                  <div className={`right key-color ` + globalState.theme}>
-                    {"$ " + item.item.price}
+                ))
+              ) : (
+                <div className="pt-2 pb-2">
+                  <div className="emptycart">
+                    <div className="font-size-big">
+                      Your Amazon Cart is empty.
+                    </div>
+                    <div className="normal-font">
+                      Your Shopping Cart lives to serve. Give it purpose — fill
+                      it with groceries, clothing, household supplies,
+                      electronics, and more. <br></br>Continue shopping on the
+                      <Link
+                        href="/"
+                        style={{
+                          color:
+                            globalState.theme == "dark" ? "#1df7a0" : "#ff7449",
+                        }}
+                      >
+                        {" Amazon.com homepage"}
+                      </Link>
+                      {", learn about today's deals, or visit your Wish List."}
+                    </div>
                   </div>
                 </div>
-              ))
-            ) : (
-              <div className="pt-2 pb-2">
-                <div className="emptycart">
-                  <div className="font-size-big">
-                    Your Amazon Cart is empty.
-                  </div>
-                  <div className="normal-font">
-                    Your Shopping Cart lives to serve. Give it purpose — fill it
-                    with groceries, clothing, household supplies, electronics,
-                    and more. <br></br>Continue shopping on the
-                    <a
-                      href="/"
-                      style={{
-                        color:
-                          globalState.theme == "dark" ? "#1df7a0" : "#ff7449",
-                      }}
-                    >
-                      {" "}
-                      Amazon.com homepage
-                    </a>
-                    , learn about today's deals, or visit your Wish List.
-                  </div>
-                </div>
-              </div>
-            )}
+              )}
+            </>
           </Col>
           {globalState.cartItems.length > 0 && (
             <Col md={3}>
@@ -189,7 +195,7 @@ function Cart() {
                   </div>
                   <br></br>
                   <br></br>
-                  <Button className={"primary-cta w-100 " + globalState.theme}>
+                  <Button className={`primary-cta w-100 ` + globalState.theme}>
                     Proceed to checkout
                   </Button>
                 </div>
