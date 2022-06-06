@@ -6,7 +6,7 @@ import PrimaryLayout from "../components/layout/PrimaryLayout";
 import { APIFetcher } from "../services/ApiService";
 import Loading from "../components/Loading";
 
-export default function Home() {
+export default function Home({ data }) {
   const [topFeatured, setTopFeatured] = React.useState([]);
   const [featured, setFeatured] = React.useState([]);
   const [productsList, setProductsList] = React.useState([]);
@@ -15,18 +15,14 @@ export default function Home() {
   //setting up productslist
   React.useEffect(() => {
     setLoading(true);
-    APIFetcher("")
-      .then((response) => {
-        let topFeaturedProducts = response.filter((item) => item.top_featured);
-        let featuredProducts = response.filter((item) => item.featured);
-        setProductsList(response);
-        setFeatured(featuredProducts);
-        setTopFeatured(topFeaturedProducts);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
+    if (data) {
+      let topFeaturedProducts = data.filter((item) => item.top_featured);
+      let featuredProducts = data.filter((item) => item.featured);
+      setProductsList(data);
+      setFeatured(featuredProducts);
+      setTopFeatured(topFeaturedProducts);
+      setLoading(false);
+    }
   }, []);
   return (
     <div>
@@ -57,5 +53,12 @@ export default function Home() {
     </div>
   );
 }
+
+// server side rendering
+Home.getInitialProps = async (ctx) => {
+  const res = await fetch("https://future-amazon-backend.vercel.app");
+  const json = await res.json();
+  return { data: json };
+};
 // attaching the children with layout
 Home.Layout = PrimaryLayout;

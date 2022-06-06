@@ -8,10 +8,16 @@
     color: $light-grey-color;
   }
 }
+.red-color {
+  color: rgb(235, 111, 111);
+}
 .light-grey-color {
   color: $light-grey-color;
   &.light {
     color: black;
+  }
+  &.show {
+    color: rgb(160, 160, 160) !important;
   }
 }
 .key-color-2 {
@@ -68,6 +74,11 @@
   }
   &.padding-normal {
     padding: 5px 10px !important;
+  }
+  &.very-small {
+    padding: 0px !important;
+    height: 15px;
+    width: 15px;
   }
   &.oval {
     border-radius: 20px !important;

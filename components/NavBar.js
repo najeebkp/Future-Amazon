@@ -214,10 +214,12 @@ function NavBar() {
               <div className={"bold primary-color-text " + globalState.theme}>
                 {globalState.cartCount}
               </div>
-              <ShoppingCart
-                size="17"
-                color={globalState.theme == "dark" ? "#1DF7A0" : "#ff7449"}
-              />
+              <Link href="/cart">
+                <ShoppingCart
+                  size="17"
+                  color={globalState.theme == "dark" ? "#1DF7A0" : "#ff7449"}
+                />
+              </Link>
             </div>
           </Col>
         </Row>

@@ -79,11 +79,14 @@ function ProductDetail(props) {
   };
 
   const updateCart = (newQuantity) => {
-    let newItem = { count: newQuantity, item: product.id };
+    // console.log("product", product);
+    let newItem = { count: newQuantity, item: product };
     let cartItems = globalState.cartItems;
 
-    let i = cartItems.findIndex((item) => item.item === product.id);
-
+    let i = cartItems.findIndex((item) => item.item._id == props.id);
+    // console.log("props.id", props.id);
+    // console.log("cartItems Previous", cartItems);
+    // console.log("i", i);
     if (i > -1) {
       cartItems[i].count = cartItems[i].count + newQuantity;
     } else cartItems.push(newItem);
@@ -92,6 +95,7 @@ function ProductDetail(props) {
       type: "ADD_TO_CART",
       payload: cartItems,
     });
+    // console.log("cartItems New", cartItems);
   };
 
   return (
